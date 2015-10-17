@@ -37,7 +37,7 @@ func (r *room) Run() {
 		case client := <-r.join:
 			// joining
 			r.clients[client] = true
-		case client := <-r.join:
+		case client := <-r.leave:
 			// leaving
 			close(client.send)
 			delete(r.clients, client)
